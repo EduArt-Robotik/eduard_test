@@ -28,17 +28,19 @@ int main(int argc, char** argv)
     MovementState state = INIT;
     ros::Time tRef = ros::Time::now();
 
+
+        joy_buf.axes[0] = 0.0;
+        joy_buf.axes[1] = 0.0;
+        joy_buf.axes[2] = 0.0;
+        joy_buf.axes[3] = 1.0;
+        joy_buf.buttons[10] = 0;
+
     while(ros::ok())
     {
         ros::Time t      = ros::Time::now();
         ros::Duration dt = t - tRef;
         double elapsed   = dt.toSec();
 
-        joy_buf.axes[0] = 0.0;
-        joy_buf.axes[1] = 0.0;
-        joy_buf.axes[2] = 0.0;
-        joy_buf.axes[3] = 0.0;
-        joy_buf.buttons[10] = 0;
         switch(state)
         {
             case INIT:
@@ -68,7 +70,7 @@ int main(int argc, char** argv)
             break;
             case TURNLEFT:
                 // turn robot left for a fixed period
-                joy_buf.axes[0] = 1.0;
+                joy_buf.axes[2] = 1.0;
 
                 if(elapsed > 1.0)
                 {
@@ -86,7 +88,7 @@ int main(int argc, char** argv)
             break;
             case TURNRIGHT:
                 // turn robot right for a fixed period
-                joy_buf.axes[0] = -1.0;
+                joy_buf.axes[2] = -1.0;
 
                 if(elapsed > 1.0)
                 {
