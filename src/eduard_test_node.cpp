@@ -33,7 +33,7 @@ int main(int argc, char** argv)
         joy_buf.axes.push_back(0.0);
         joy_buf.axes.push_back(1.0);
          
-        for(int i=0; i<9; i++)
+        for(int i=0; i<10; i++)
             joy_buf.buttons.push_back(0);
         joy_buf.buttons.push_back(1);
 
@@ -59,7 +59,7 @@ int main(int argc, char** argv)
     for(int i=0; i<4; i++)
         joy_buf.axes.push_back(0.0);
         
-    for(int i=0; i<10; i++)
+    for(int i=0; i<11; i++)
         joy_buf.buttons.push_back(0);
 
      while(ros::ok())
