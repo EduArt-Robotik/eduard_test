@@ -72,7 +72,7 @@ int main(int argc, char** argv)
                 // turn robot left for a fixed period
                 joy_buf.axes[2] = 1.0;
 
-                if(elapsed > 1.0)
+                if(elapsed > 60.0)
                 {
                     state = WAIT2;
                     tRef  = t;
@@ -90,7 +90,7 @@ int main(int argc, char** argv)
                 // turn robot right for a fixed period
                 joy_buf.axes[2] = -1.0;
 
-                if(elapsed > 1.0)
+                if(elapsed > 60.0)
                 {
                     state = WAIT1;
                     tRef  = t;
